@@ -16,7 +16,7 @@ export function CommandPalette({ problems, open, onClose }: { problems: Problem[
   const [query, setQuery] = useState("");
   const index = useMemo(() => buildSearchIndex(problems), [problems]);
   const { titleMatches, bodyMatches } = searchProblems(index, query);
-  const flat = [...titleMatches.map((e) => e.number), ...bodyMatches.map((b) => b.entry.number)];
+  const flat = useMemo(() => [...titleMatches.map((e) => e.number), ...bodyMatches.map((b) => b.entry.number)], [titleMatches, bodyMatches]);
   const [active, setActive] = useState(0);
   useEffect(() => { if (open) { setQuery(""); setActive(0); } }, [open]);
   useEffect(() => {
@@ -54,13 +54,16 @@ export function CommandPalette({ problems, open, onClose }: { problems: Problem[
             );
           })}
           {bodyMatches.length > 0 && <div className="px-2 py-1 text-[11px] font-semibold text-fg-3">本文中に一致</div>}
-          {bodyMatches.map((b) => (
-            <button key={b.entry.number} onClick={() => { router.push(`/problems/${b.entry.number}`); onClose(); }}
-              className="flex w-full items-center gap-3 rounded-chip px-2 py-2 text-left">
-              <span className="font-mono text-[12px] text-fg-3">#{b.entry.number}</span>
-              <span className="flex-1 text-[13px] text-fg-3"><Highlight text={b.excerpt} q={query} /></span>
-            </button>
-          ))}
+          {bodyMatches.map((b) => {
+            const isActive = flat[active] === b.entry.number;
+            return (
+              <button key={b.entry.number} onClick={() => { router.push(`/problems/${b.entry.number}`); onClose(); }}
+                className={`flex w-full items-center gap-3 rounded-chip px-2 py-2 text-left ${isActive ? "bg-accent/10" : ""}`}>
+                <span className="font-mono text-[12px] text-fg-3">#{b.entry.number}</span>
+                <span className="flex-1 text-[13px] text-fg-3"><Highlight text={b.excerpt} q={query} /></span>
+              </button>
+            );
+          })}
         </div>
       </div>
     </div>
