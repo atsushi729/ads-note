@@ -3,3 +3,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.prose-notes p { line-height: 1.65; margin: 0 0 .75rem; color: var(--fg-2); }
+.prose-notes ul { list-style: disc; padding-left: 1.25rem; margin: 0 0 .75rem; }
+.prose-notes li { margin: .15rem 0; color: var(--fg-2); }
+.prose-notes strong { color: var(--fg); font-weight: 600; }
