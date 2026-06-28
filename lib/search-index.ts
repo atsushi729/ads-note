@@ -23,6 +23,6 @@ export function searchProblems(index: SearchEntry[], query: string) {
   const titleNums = new Set(titleMatches.map((e) => e.number));
   const bodyMatches = index
     .filter((e) => !titleNums.has(e.number) && e.snippet.toLowerCase().includes(q))
-    .map((e) => ({ entry: e, excerpt: excerpt(e.snippet, query) }));
+    .map((e) => ({ entry: e, excerpt: excerpt(e.snippet, q) }));
   return { titleMatches, bodyMatches };
 }

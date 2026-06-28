@@ -11,7 +11,8 @@ export function ConceptDetail({ concept, problems }: { concept: Concept; problem
     <div className="mx-auto flex max-w-[1100px] pb-16 md:pb-0">
       <div className="hidden md:block"><TocRail backHref="/concepts" backLabel="概念ライブラリ" items={[
         { id: "overview", label: "概要" }, { id: "complexity", label: "計算量" },
-        { id: "related", label: "関連する問題" }, { id: "note", label: "学習メモ" },
+        { id: "related", label: "関連する問題" },
+        ...(concept.studyNote ? [{ id: "note", label: "学習メモ" }] : []),
       ]} /></div>
       <article className="max-w-[760px] flex-1 px-5 py-6 md:px-[38px] md:py-[30px]">
         <div className="mb-3 flex items-center gap-2 text-[12px]">
@@ -27,8 +28,12 @@ export function ConceptDetail({ concept, problems }: { concept: Concept; problem
         <ComplexityTable rows={concept.complexity} />
         <h2 className="mb-2 mt-8 text-[18px] font-bold" id="related">関連する問題</h2>
         <RelatedProblems problems={problems} />
-        <h2 className="mb-2 mt-8 text-[18px] font-bold" id="note">学習メモ</h2>
-        <div className="rounded-block border-l-[3px] border-accent bg-panel px-4 py-3"><Markdown>{concept.note}</Markdown></div>
+        {concept.studyNote && (
+          <>
+            <h2 className="mb-2 mt-8 text-[18px] font-bold" id="note">学習メモ</h2>
+            <div className="rounded-block border-l-[3px] border-accent bg-panel px-4 py-3"><Markdown>{concept.studyNote}</Markdown></div>
+          </>
+        )}
       </article>
       <BottomTabBar active="library" />
     </div>

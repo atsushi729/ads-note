@@ -10,5 +10,7 @@ describe("concept loader", () => {
     expect(c.complexity).toHaveLength(3);
     expect(c.complexity[0].avg).toBe("O(\\log n)");
     expect(c.note).toContain("二分木");
+    expect(typeof c.studyNote).toBe("string");
+    expect(c.studyNote.length).toBeGreaterThan(0);
   });
 });

@@ -10,7 +10,7 @@ export function Markdown({ children }: { children: string }) {
         remarkPlugins={[remarkGfm, remarkMath]}
         rehypePlugins={[rehypeKatex]}
         components={{
-          code({ className, children, ...props }) {
+          code({ node: _node, className, children, ...props }) {
             const isBlock = /language-/.test(className ?? "");
             if (isBlock) return <code className={className} {...props}>{children}</code>;
             return (

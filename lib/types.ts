@@ -34,6 +34,7 @@ export interface Concept {
   mastery: Mastery;
   masteryPct: number;
   note: string;
+  studyNote: string;
   problemNumbers: number[];
   complexity: ConceptComplexityRow[];
 }

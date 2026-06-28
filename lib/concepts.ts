@@ -16,6 +16,7 @@ function loadOne(file: string): Concept {
     mastery: data.mastery ?? "未学習",
     masteryPct: typeof data.masteryPct === "number" ? data.masteryPct : 0,
     note: content.trim(),
+    studyNote: typeof data.studyNote === "string" ? data.studyNote : "",
     problemNumbers: Array.isArray(data.problemNumbers) ? data.problemNumbers : [],
     complexity: Array.isArray(data.complexity) ? data.complexity : [],
   };
