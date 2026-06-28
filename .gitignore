@@ -4,3 +4,5 @@ out/
 .env
 .env.local
 .DS_Store
+.superpowers/
+design_handoff_leetcode_notes_viewer/
