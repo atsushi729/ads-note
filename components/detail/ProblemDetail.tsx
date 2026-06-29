@@ -1,4 +1,6 @@
 "use client";
+import Link from "next/link";
+import { Sparkles } from "lucide-react";
 import type { Problem, Step } from "@/lib/types";
 import { TocRail } from "./TocRail";
 import { StepBlock } from "./StepBlock";
@@ -22,7 +24,12 @@ export function ProblemDetail({ problem, highlights, concepts }: {
           <span>#{problem.number}</span>
           <span className={`rounded-chip bg-panel-2 px-2 py-0.5 ${diffClass[problem.difficulty]}`}>{problem.difficulty}</span>
           {problem.tags.map((t) => <span key={t}>{t}</span>)}
-          {problem.source && <a href={problem.source} className="ml-auto text-accent-deep">leetcode ↗</a>}
+          <span className="ml-auto flex items-center gap-3">
+            <Link href={`/chat?problem=${problem.number}`} className="flex items-center gap-1 text-accent-deep">
+              <Sparkles size={12} /> AIに質問
+            </Link>
+            {problem.source && <a href={problem.source} className="text-accent-deep">leetcode ↗</a>}
+          </span>
         </div>
         <h1 className="mb-4 text-[30px] font-extrabold tracking-[-0.025em]" id="question">{problem.title}</h1>
         <Markdown>{problem.question}</Markdown>

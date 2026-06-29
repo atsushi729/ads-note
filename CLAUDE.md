@@ -13,7 +13,7 @@
 
 ## 技術スタック
 
-- **Next.js (App Router) + TypeScript**、SSG 出力
+- **Next.js (App Router) + TypeScript**。Cloudflare Workers へ `@opennextjs/cloudflare` でデプロイ（問題/概念は SSG、`/chat`・`/api/chat` は動的）
 - **Tailwind CSS**（デザイントークンを CSS 変数化し、`:root` / `.dark` で light/dark 切替）
 - Markdown: `gray-matter` + `react-markdown` + `remark-gfm` + `remark-math` + `rehype-katex`
 - コードハイライト: `rehype-pretty-code`（shiki, `github-light` / `github-dark`）
@@ -58,8 +58,16 @@ npm run lint     # Lint
 - `parse-steps.ts` は最重要ユニット。変更時は必ずテスト（サンプル 701.md）を走らせる。
 - ライト/ダーク両テーマを常に確認する。
 
-## 将来の拡張（今は未実装、構造だけ用意）
+## LLM チャット機能（実装済み）
 
-- LLM チャット機能（ストリーミング応答）。`app/api/chat/route.ts` を予約済み（現状 501 スタブ）。
-- 後日 Vercel AI SDK (`ai`) + `useChat` を追加し、無料 API（Groq / Gemini / OpenRouter）を差し替える。
-- API キーはサーバー専用 `.env`。クライアントに晒さない。
+- 専用ページ `/chat`。文脈連動: 右上で問題/概念ノートを選ぶ（または `/chat?problem=701` / `/chat?concept=stack` で deep-link）と、その内容を system prompt に注入して回答する。問題・概念の詳細ページに「AIに質問」導線あり。
+- ストリーミング: Vercel AI SDK v5系 (`ai` / `@ai-sdk/react` の `useChat`)。`app/api/chat/route.ts` が `streamText().toUIMessageStreamResponse()` を返す。
+- **プロバイダは差し替え可能**（`lib/ai/provider.ts`）。既定は Cloudflare Workers AI（外部キー不要、`env.AI` binding）。環境変数 `CHAT_PROVIDER`（`workers-ai` | `google` | `groq`）＋ `CHAT_MODEL` で切替。google/groq はキー必須（`GOOGLE_GENERATIVE_AI_API_KEY` / `GROQ_API_KEY`）。
+- 文脈整形は `lib/ai/context.ts`（`buildSystemPrompt` / `serializeProblemContext` / `serializeConceptContext`、いずれもテスト済みの純関数）。
+- API キーは `wrangler secret` でサーバー専用。クライアントに晒さない。
+
+## デプロイ（Cloudflare Workers / OpenNext）
+
+- `@opennextjs/cloudflare` で Worker としてデプロイ（**純 SSG export ではない**。`next.config.ts` から `output: "export"` は削除済み）。問題/概念ページは引き続き SSG、`/chat`・`/api/chat` のみ動的。
+- 設定: `wrangler.jsonc`（`ai` binding=`AI`、`vars.CHAT_PROVIDER`）、`open-next.config.ts`。
+- コマンド: `npm run preview`（ローカルで Worker をプレビュー）、`npm run deploy`（ビルド＋`wrangler deploy`）、`npm run cf-typegen`（binding 型生成）。

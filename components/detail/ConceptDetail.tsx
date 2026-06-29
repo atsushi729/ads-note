@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { Sparkles } from "lucide-react";
 import type { Concept, Problem } from "@/lib/types";
 import { TocRail } from "./TocRail";
 import { Markdown } from "@/components/markdown/Markdown";
@@ -18,7 +20,12 @@ export function ConceptDetail({ concept, problems }: { concept: Concept; problem
         <div className="mb-3 flex items-center gap-2 text-[12px]">
           <span className="rounded-chip bg-panel-2 px-2 py-0.5 text-fg-3">{concept.kind === "構造" ? "データ構造" : "アルゴ"}</span>
           <span style={{ color }}>● {concept.mastery}</span>
-          <span className="ml-auto font-mono text-accent-deep">関連 {concept.problemNumbers.length} 問題</span>
+          <span className="ml-auto flex items-center gap-3">
+            <Link href={`/chat?concept=${concept.id}`} className="flex items-center gap-1 text-accent-deep">
+              <Sparkles size={12} /> AIに質問
+            </Link>
+            <span className="font-mono text-accent-deep">関連 {concept.problemNumbers.length} 問題</span>
+          </span>
         </div>
         <h1 className="text-[30px] font-extrabold tracking-[-0.025em]" id="overview">{concept.name}</h1>
         <p className="mb-4 text-[13px] text-fg-3">{concept.nameJa}</p>

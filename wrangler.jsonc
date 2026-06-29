@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "main": ".open-next/worker.js",
+  "name": "algo-notes",
+  "compatibility_date": "2024-12-30",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  // Cloudflare Workers AI — the default chat provider (no external API key).
+  "ai": {
+    "binding": "AI"
+  },
+  "vars": {
+    // Swap provider here (or via dashboard secrets): "workers-ai" | "google" | "groq".
+    // For google/groq, set the matching key as a secret:
+    //   wrangler secret put GOOGLE_GENERATIVE_AI_API_KEY
+    //   wrangler secret put GROQ_API_KEY
+    "CHAT_PROVIDER": "workers-ai"
+  }
+}
