@@ -6,3 +6,10 @@ out/
 .DS_Store
 .superpowers/
 design_handoff_leetcode_notes_viewer/
+
+# Cloudflare / OpenNext build artifacts & local state
+.open-next/
+.wrangler/
+
+# Auto-generated content bundle (scripts/gen-content.mjs)
+lib/content-data.ts
