@@ -24,7 +24,7 @@ export interface ChatEnv {
 }
 
 export const DEFAULT_MODELS: Record<ChatProviderId, string> = {
-  "workers-ai": "@cf/meta/llama-3.1-8b-instruct",
+  "workers-ai": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
   google: "gemini-2.5-flash",
   groq: "llama-3.3-70b-versatile",
 };

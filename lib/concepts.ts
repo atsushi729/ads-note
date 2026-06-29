@@ -1,12 +1,8 @@
-import { readdirSync, readFileSync } from "node:fs";
-import path from "node:path";
 import matter from "gray-matter";
 import type { Concept } from "./types";
+import { conceptFiles } from "./content-data";
 
-const DIR = path.join(process.cwd(), "content/concepts");
-
-function loadOne(file: string): Concept {
-  const raw = readFileSync(path.join(DIR, file), "utf8");
+function loadOne(file: string, raw: string): Concept {
   const { data, content } = matter(raw);
   return {
     id: data.id ?? file.replace(/\.md$/, ""),
@@ -22,7 +18,8 @@ function loadOne(file: string): Concept {
   };
 }
 export function getAllConcepts(): Concept[] {
-  return readdirSync(DIR).filter((f) => f.endsWith(".md")).map(loadOne)
+  return Object.entries(conceptFiles)
+    .map(([file, raw]) => loadOne(file, raw))
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 export function getConcept(id: string): Concept | undefined {
