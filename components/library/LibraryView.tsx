@@ -2,7 +2,6 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Problem } from "@/lib/types";
 import { TopBar } from "@/components/layout/TopBar";
-import { ProblemStats } from "@/components/layout/StatStrip";
 import { FilterPanel, type Filters } from "./FilterPanel";
 import { ProblemCard } from "./ProblemCard";
 import { CommandPalette } from "@/components/search/CommandPalette";
@@ -24,7 +23,6 @@ export function LibraryView({ problems }: { problems: Problem[] }) {
   return (
     <main className="mx-auto max-w-[1180px] pb-16 md:pb-0">
       <TopBar variant="problems" onSearchClick={() => setPaletteOpen(true)} />
-      <ProblemStats problems={problems} />
       <div className="flex">
         <div className="hidden md:block"><FilterPanel variant="problems" tags={tags} filters={filters} onChange={setFilters} /></div>
         <div className="grid flex-1 grid-cols-1 gap-3.5 p-5 md:grid-cols-2">
