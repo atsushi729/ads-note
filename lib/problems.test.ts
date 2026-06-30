@@ -12,6 +12,7 @@ describe("problem loader", () => {
     expect(p.title).toBe("Insert into a Binary Search Tree");
     expect(p.steps).toHaveLength(3);
     expect(p.difficulty).toBe("Medium");
+    expect(p.created).toBe("2026-05-04");
   });
   it("sorts ascending by number", () => {
     const nums = getAllProblems().map((p) => p.number);

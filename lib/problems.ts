@@ -6,6 +6,13 @@ import { parseProblemBody } from "./parse-steps";
 
 const DIR = path.join(process.cwd(), "content/problems");
 
+function normalizeDate(value: unknown): string {
+  if (value instanceof Date) return value.toISOString().slice(0, 10);
+  if (typeof value !== "string") return "";
+  const date = value.match(/^\d{4}-\d{2}-\d{2}/)?.[0];
+  return date ?? value;
+}
+
 function loadOne(file: string): Problem {
   const raw = readFileSync(path.join(DIR, file), "utf8");
   const { data, content } = matter(raw);
@@ -22,7 +29,7 @@ function loadOne(file: string): Problem {
     difficulty: data.difficulty ?? parsed.difficulty ?? "Medium",
     tags: Array.isArray(data.tags) ? data.tags.filter((t: string) => t !== "leetcode") : [],
     source: data.source ?? "",
-    created: data.created ? String(data.created) : "",
+    created: normalizeDate(data.created),
     solved: data.solved ?? false,
     description: data.description,
     question: parsed.question,
