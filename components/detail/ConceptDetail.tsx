@@ -4,11 +4,10 @@ import { Markdown } from "@/components/markdown/Markdown";
 import { ComplexityTable } from "./ComplexityTable";
 import { RelatedProblems } from "./RelatedProblems";
 import { masteryColorVar } from "@/lib/difficulty";
-import { BottomTabBar } from "@/components/layout/BottomTabBar";
 export function ConceptDetail({ concept, problems }: { concept: Concept; problems: Problem[] }) {
   const color = `var(${masteryColorVar(concept.mastery)})`;
   return (
-    <div className="mx-auto flex max-w-[1100px] pb-16 md:pb-0">
+    <div className="mx-auto flex max-w-[1100px]">
       <div className="hidden md:block"><TocRail backHref="/concepts" backLabel="概念ライブラリ" items={[
         { id: "overview", label: "概要" }, { id: "complexity", label: "計算量" },
         { id: "related", label: "関連する問題" },
@@ -35,7 +34,6 @@ export function ConceptDetail({ concept, problems }: { concept: Concept; problem
           </>
         )}
       </article>
-      <BottomTabBar active="library" />
     </div>
   );
 }

@@ -5,7 +5,6 @@ import { TopBar } from "@/components/layout/TopBar";
 import { FilterPanel, type Filters } from "./FilterPanel";
 import { ProblemCard } from "./ProblemCard";
 import { CommandPalette } from "@/components/search/CommandPalette";
-import { BottomTabBar } from "@/components/layout/BottomTabBar";
 export function LibraryView({ problems }: { problems: Problem[] }) {
   const [filters, setFilters] = useState<Filters>({ difficulty: "すべて", tags: [], kind: "すべて", mastery: "すべて" });
   const [paletteOpen, setPaletteOpen] = useState(false);
@@ -21,7 +20,7 @@ export function LibraryView({ problems }: { problems: Problem[] }) {
     (filters.difficulty === "すべて" || p.difficulty === filters.difficulty) &&
     (filters.tags.length === 0 || filters.tags.every((t) => p.tags.includes(t))));
   return (
-    <main className="mx-auto max-w-[1180px] pb-16 md:pb-0">
+    <main className="mx-auto max-w-[1180px]">
       <TopBar variant="problems" onSearchClick={() => setPaletteOpen(true)} />
       <div className="flex">
         <div className="hidden md:block"><FilterPanel variant="problems" tags={tags} filters={filters} onChange={setFilters} /></div>
@@ -30,7 +29,6 @@ export function LibraryView({ problems }: { problems: Problem[] }) {
         </div>
       </div>
       <CommandPalette problems={problems} open={paletteOpen} onClose={() => setPaletteOpen(false)} />
-      <BottomTabBar active="library" />
     </main>
   );
 }

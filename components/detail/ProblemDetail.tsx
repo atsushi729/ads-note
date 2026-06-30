@@ -5,7 +5,6 @@ import { StepBlock } from "./StepBlock";
 import { Markdown } from "@/components/markdown/Markdown";
 import { ConceptChips } from "./ConceptChips";
 import type { Concept } from "@/lib/types";
-import { BottomTabBar } from "@/components/layout/BottomTabBar";
 const diffClass: Record<string, string> = { Easy: "text-easy", Medium: "text-medium", Hard: "text-hard" };
 export function ProblemDetail({ problem, highlights, concepts }: {
   problem: Problem; highlights: { light: string; dark: string }[]; concepts: Concept[];
@@ -15,7 +14,7 @@ export function ProblemDetail({ problem, highlights, concepts }: {
     ...problem.steps.map((s: Step) => ({ id: `step-${s.index}`, label: `Step ${s.index}` })),
   ];
   return (
-    <div className="mx-auto flex max-w-[1100px] pb-16 md:pb-0">
+    <div className="mx-auto flex max-w-[1100px]">
       <div className="hidden md:block"><TocRail backHref="/" backLabel="ライブラリ" items={toc} /></div>
       <article className="max-w-[760px] flex-1 px-5 py-6 md:px-[38px] md:py-[30px]">
         <div className="mb-3 flex items-center gap-2 font-mono text-[12px] text-fg-3">
@@ -34,7 +33,6 @@ export function ProblemDetail({ problem, highlights, concepts }: {
           </div>
         ))}
       </article>
-      <BottomTabBar active="library" />
     </div>
   );
 }
