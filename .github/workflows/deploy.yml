@@ -24,17 +24,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Check Node
-        run: node --version
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build static site
-        run: npm run build
-        env:
-          GITHUB_PAGES: "true"
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

@@ -1,0 +1,138 @@
+1:"$Sreact.fragment"
+2:I[5130,["177","static/chunks/app/layout-0aba607a0e74b97e.js"],"ThemeProvider"]
+3:I[5244,[],""]
+4:I[3866,[],""]
+6:I[6213,[],"OutletBoundary"]
+8:I[6213,[],"MetadataBoundary"]
+a:I[6213,[],"ViewportBoundary"]
+c:I[4835,[],""]
+:HL["/ads-note/_next/static/css/9a2dbd5192b7dc54.css","style"]
+:HL["/ads-note/_next/static/css/edb657d1d7ebdfbc.css","style"]
+0:{"P":null,"b":"o3rCY41Dq5SQWxGxKZKoQ","p":"/ads-note","c":["","problems","701"],"i":false,"f":[[["",{"children":["problems",{"children":[["number","701","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/ads-note/_next/static/css/9a2dbd5192b7dc54.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/ads-note/_next/static/css/edb657d1d7ebdfbc.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"ja","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"dangerouslySetInnerHTML":{"__html":"try{var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.classList.add('dark')}catch(e){}"}}]}],["$","body",null,{"className":"bg-canvas font-sans text-fg antialiased","children":["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[],[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}]]}],{"children":["problems",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","problems","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["number","701","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","segmentPath":["children","problems","children","$0:f:0:1:2:children:2:children:0","children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":"$L7"}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","aQVr_JR9dGQlgrOB04nGu",{"children":[["$","$L8",null,{"children":"$L9"}],["$","$La",null,{"children":"$Lb"}],null]}]]}],false]],"m":"$undefined","G":["$c","$undefined"],"s":false,"S":true}
+d:I[3541,["330","static/chunks/d3ac728e-c3202dd78a2748e2.js","173","static/chunks/173-13fdcd71603b4830.js","689","static/chunks/689-0d4c2afdd85a640e.js","719","static/chunks/app/problems/%5Bnumber%5D/page-2351c08f6e5f01bb.js"],"ProblemDetail"]
+e:T444,Can you solve this real interview question? Insert into a Binary Search Tree - You are given the root node of a binary search tree (BST) and a value to insert into the tree. Return the root node of the BST after the insertion. It is guaranteed that the new value does not exist in the original BST.Notice that there may exist multiple valid ways for the insertion, as long as the tree remains a BST after insertion. You can return any of them. Example 1:[https://assets.leetcode.com/uploads/2020/10/05/insertbst.jpg]Input: root = [4,2,7,1,3], val = 5Output: [4,2,7,1,3,5]Explanation: Another accepted tree is:[https://assets.leetcode.com/uploads/2020/10/05/bst.jpg]Example 2:Input: root = [40,20,60,10,30,50,70], val = 25Output: [40,20,60,10,30,50,70,null,null,25]Example 3:Input: root = [4,2,7,1,3,null,null,null,null,null,null], val = 5Output: [4,2,7,1,3,5] Constraints: * The number of nodes in the tree will be in the range [0, 104]. * -108 <= Node.val <= 108 * All the values Node.val are unique. * -108 <= val <= 108 * It's guaranteed that val does not exist in the original BST.f:T443,You are given the `root` node of a binary search tree (BST) and a `value` to insert into the tree. Return *the root node of the BST after the insertion*. It is **guaranteed** that the new value does not exist in the original BST.
+
+**Notice** that there may exist multiple valid ways for the insertion, as long as the tree remains a BST after insertion. You can return **any of them**.
+
+**Example 1:**
+
+![](https://assets.leetcode.com/uploads/2020/10/05/insertbst.jpg)
+```
+Input: root = [4,2,7,1,3], val = 5
+Output: [4,2,7,1,3,5]
+Explanation: Another accepted tree is:
+```
+
+**Example 2:**
+
+```
+Input: root = [40,20,60,10,30,50,70], val = 25
+Output: [40,20,60,10,30,50,70,null,null,25]
+```
+
+**Example 3:**
+
+```
+Input: root = [4,2,7,1,3,null,null,null,null,null,null], val = 5
+Output: [4,2,7,1,3,5]
+```
+
+**Constraints:**
+
+ - The number of nodes in the tree will be in the range $[0, 10^4]$.  
+ - $-10^8 \leq \text{Node.val} \leq 10^8$  
+ - All the values $\text{Node.val}$ are unique. $-10^8 \leq \text{val} \leq 10^8$  
+ - It is guaranteed that $\text{val}$ does not exist in the original BST.10:Tb7a,<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">class</span><span style="color:#6F42C1"> Solution</span><span style="color:#24292E">:  </span></span>
+<span class="line"><span style="color:#D73A49">    def</span><span style="color:#6F42C1"> insert_into_bst</span><span style="color:#24292E">(self, root: Optional[TreeNode], val: </span><span style="color:#005CC5">int</span><span style="color:#24292E">) -> Optional[TreeNode]:  </span></span>
+<span class="line"><span style="color:#D73A49">        if</span><span style="color:#D73A49"> not</span><span style="color:#24292E"> root:  </span></span>
+<span class="line"><span style="color:#D73A49">            return</span><span style="color:#24292E"> TreeNode(val)  </span></span>
+<span class="line"><span style="color:#24292E">  </span></span>
+<span class="line"><span style="color:#24292E">        node </span><span style="color:#D73A49">=</span><span style="color:#24292E"> root  </span></span>
+<span class="line"><span style="color:#24292E">  </span></span>
+<span class="line"><span style="color:#D73A49">        while</span><span style="color:#24292E"> node:  </span></span>
+<span class="line"><span style="color:#D73A49">            if</span><span style="color:#24292E"> node.val </span><span style="color:#D73A49">></span><span style="color:#24292E"> val:  </span></span>
+<span class="line"><span style="color:#D73A49">                if</span><span style="color:#D73A49"> not</span><span style="color:#24292E"> node.left:  </span></span>
+<span class="line"><span style="color:#24292E">                    node.left </span><span style="color:#D73A49">=</span><span style="color:#24292E"> TreeNode(val)  </span></span>
+<span class="line"><span style="color:#D73A49">                    break</span><span style="color:#24292E">  </span></span>
+<span class="line"><span style="color:#24292E">                node </span><span style="color:#D73A49">=</span><span style="color:#24292E"> node.left  </span></span>
+<span class="line"><span style="color:#D73A49">            else</span><span style="color:#24292E">:  </span></span>
+<span class="line"><span style="color:#D73A49">                if</span><span style="color:#D73A49"> not</span><span style="color:#24292E"> node.right:  </span></span>
+<span class="line"><span style="color:#24292E">                    node.right </span><span style="color:#D73A49">=</span><span style="color:#24292E"> TreeNode(val)  </span></span>
+<span class="line"><span style="color:#D73A49">                    break</span><span style="color:#24292E">  </span></span>
+<span class="line"><span style="color:#24292E">                node </span><span style="color:#D73A49">=</span><span style="color:#24292E"> node.right  </span></span>
+<span class="line"><span style="color:#D73A49">        return</span><span style="color:#24292E"> root</span></span></code></pre>11:Tb7c,<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> Solution</span><span style="color:#E1E4E8">:  </span></span>
+<span class="line"><span style="color:#F97583">    def</span><span style="color:#B392F0"> insert_into_bst</span><span style="color:#E1E4E8">(self, root: Optional[TreeNode], val: </span><span style="color:#79B8FF">int</span><span style="color:#E1E4E8">) -> Optional[TreeNode]:  </span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#F97583"> not</span><span style="color:#E1E4E8"> root:  </span></span>
+<span class="line"><span style="color:#F97583">            return</span><span style="color:#E1E4E8"> TreeNode(val)  </span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#E1E4E8">        node </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> root  </span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#F97583">        while</span><span style="color:#E1E4E8"> node:  </span></span>
+<span class="line"><span style="color:#F97583">            if</span><span style="color:#E1E4E8"> node.val </span><span style="color:#F97583">></span><span style="color:#E1E4E8"> val:  </span></span>
+<span class="line"><span style="color:#F97583">                if</span><span style="color:#F97583"> not</span><span style="color:#E1E4E8"> node.left:  </span></span>
+<span class="line"><span style="color:#E1E4E8">                    node.left </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> TreeNode(val)  </span></span>
+<span class="line"><span style="color:#F97583">                    break</span><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#E1E4E8">                node </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> node.left  </span></span>
+<span class="line"><span style="color:#F97583">            else</span><span style="color:#E1E4E8">:  </span></span>
+<span class="line"><span style="color:#F97583">                if</span><span style="color:#F97583"> not</span><span style="color:#E1E4E8"> node.right:  </span></span>
+<span class="line"><span style="color:#E1E4E8">                    node.right </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> TreeNode(val)  </span></span>
+<span class="line"><span style="color:#F97583">                    break</span><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#E1E4E8">                node </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> node.right  </span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#E1E4E8"> root</span></span></code></pre>12:Tbae,<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">class</span><span style="color:#6F42C1"> Solution</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#D73A49">    def</span><span style="color:#6F42C1"> insert_into_bst</span><span style="color:#24292E">(self, root: Optional[TreeNode], val: </span><span style="color:#005CC5">int</span><span style="color:#24292E">) -> Optional[TreeNode]:</span></span>
+<span class="line"><span style="color:#D73A49">        if</span><span style="color:#24292E"> root </span><span style="color:#D73A49">is</span><span style="color:#005CC5"> None</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#D73A49">            return</span><span style="color:#24292E"> TreeNode(val)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">        node </span><span style="color:#D73A49">=</span><span style="color:#24292E"> root</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">        while</span><span style="color:#005CC5"> True</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#D73A49">            if</span><span style="color:#24292E"> val </span><span style="color:#D73A49">&#x3C;</span><span style="color:#24292E"> node.val:</span></span>
+<span class="line"><span style="color:#D73A49">                if</span><span style="color:#24292E"> node.left </span><span style="color:#D73A49">is</span><span style="color:#005CC5"> None</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#24292E">                    node.left </span><span style="color:#D73A49">=</span><span style="color:#24292E"> TreeNode(val)</span></span>
+<span class="line"><span style="color:#D73A49">                    return</span><span style="color:#24292E"> root</span></span>
+<span class="line"><span style="color:#24292E">                node </span><span style="color:#D73A49">=</span><span style="color:#24292E"> node.left</span></span>
+<span class="line"><span style="color:#D73A49">            else</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#D73A49">                if</span><span style="color:#24292E"> node.right </span><span style="color:#D73A49">is</span><span style="color:#005CC5"> None</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#24292E">                    node.right </span><span style="color:#D73A49">=</span><span style="color:#24292E"> TreeNode(val)</span></span>
+<span class="line"><span style="color:#D73A49">                    return</span><span style="color:#24292E"> root</span></span>
+<span class="line"><span style="color:#24292E">                node </span><span style="color:#D73A49">=</span><span style="color:#24292E"> node.right</span></span></code></pre>13:Tbb0,<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> Solution</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">    def</span><span style="color:#B392F0"> insert_into_bst</span><span style="color:#E1E4E8">(self, root: Optional[TreeNode], val: </span><span style="color:#79B8FF">int</span><span style="color:#E1E4E8">) -> Optional[TreeNode]:</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> root </span><span style="color:#F97583">is</span><span style="color:#79B8FF"> None</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">            return</span><span style="color:#E1E4E8"> TreeNode(val)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">        node </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> root</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">        while</span><span style="color:#79B8FF"> True</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">            if</span><span style="color:#E1E4E8"> val </span><span style="color:#F97583">&#x3C;</span><span style="color:#E1E4E8"> node.val:</span></span>
+<span class="line"><span style="color:#F97583">                if</span><span style="color:#E1E4E8"> node.left </span><span style="color:#F97583">is</span><span style="color:#79B8FF"> None</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">                    node.left </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> TreeNode(val)</span></span>
+<span class="line"><span style="color:#F97583">                    return</span><span style="color:#E1E4E8"> root</span></span>
+<span class="line"><span style="color:#E1E4E8">                node </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> node.left</span></span>
+<span class="line"><span style="color:#F97583">            else</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">                if</span><span style="color:#E1E4E8"> node.right </span><span style="color:#F97583">is</span><span style="color:#79B8FF"> None</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">                    node.right </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> TreeNode(val)</span></span>
+<span class="line"><span style="color:#F97583">                    return</span><span style="color:#E1E4E8"> root</span></span>
+<span class="line"><span style="color:#E1E4E8">                node </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> node.right</span></span></code></pre>14:T729,<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">class</span><span style="color:#6F42C1"> Solution</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#D73A49">    def</span><span style="color:#6F42C1"> insert_into_bst</span><span style="color:#24292E">(self, root: Optional[TreeNode], val: </span><span style="color:#005CC5">int</span><span style="color:#24292E">) -> Optional[TreeNode]:</span></span>
+<span class="line"><span style="color:#D73A49">        if</span><span style="color:#24292E"> root </span><span style="color:#D73A49">is</span><span style="color:#005CC5"> None</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#D73A49">            return</span><span style="color:#24292E"> TreeNode(val)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">        if</span><span style="color:#24292E"> val </span><span style="color:#D73A49">&#x3C;</span><span style="color:#24292E"> root.val:</span></span>
+<span class="line"><span style="color:#24292E">            root.left </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> self</span><span style="color:#24292E">.insert_into_bst(root.left, val)</span></span>
+<span class="line"><span style="color:#D73A49">        else</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#24292E">            root.right </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> self</span><span style="color:#24292E">.insert_into_bst(root.right, val)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">        return</span><span style="color:#24292E"> root</span></span></code></pre>15:T72b,<pre class="shiki github-dark" style="background-color:#24292e;color:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> Solution</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">    def</span><span style="color:#B392F0"> insert_into_bst</span><span style="color:#E1E4E8">(self, root: Optional[TreeNode], val: </span><span style="color:#79B8FF">int</span><span style="color:#E1E4E8">) -> Optional[TreeNode]:</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> root </span><span style="color:#F97583">is</span><span style="color:#79B8FF"> None</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">            return</span><span style="color:#E1E4E8"> TreeNode(val)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> val </span><span style="color:#F97583">&#x3C;</span><span style="color:#E1E4E8"> root.val:</span></span>
+<span class="line"><span style="color:#E1E4E8">            root.left </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> self</span><span style="color:#E1E4E8">.insert_into_bst(root.left, val)</span></span>
+<span class="line"><span style="color:#F97583">        else</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">            root.right </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> self</span><span style="color:#E1E4E8">.insert_into_bst(root.right, val)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#E1E4E8"> root</span></span></code></pre>5:["$","$Ld",null,{"problem":{"number":701,"title":"Insert into a Binary Search Tree","difficulty":"Medium","tags":["Tree","BST"],"source":"https://leetcode.com/problems/insert-into-a-binary-search-tree/description/","created":"2026-05-04","solved":true,"description":"$e","question":"$f","steps":[{"index":1,"title":"反復による挿入","thinking":"- BSTが前提\n - nodeとvalを比較する\n\t - valの方が大きければ、nodeをrightに\n\t - valの方が小さければ、nodeをleftに\n\t - Noneになればappendして、rootを返す","codeLang":"python","code":"class Solution:  \n    def insert_into_bst(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:  \n        if not root:  \n            return TreeNode(val)  \n  \n        node = root  \n  \n        while node:  \n            if node.val > val:  \n                if not node.left:  \n                    node.left = TreeNode(val)  \n                    break  \n                node = node.left  \n            else:  \n                if not node.right:  \n                    node.right = TreeNode(val)  \n                    break  \n                node = node.right  \n        return root","timeComplexity":"O(h)","spaceComplexity":"O(1)","note":"$undefined"},{"index":2,"title":"条件式を明示的にして整理","thinking":"- コードを見やすく変形する\n\t - 条件式の見直し\n\t\t - `not root` より`root is None`の方が明示的\n\t\t - `TreeNode`の真偽値ではなく、`None`かどうかを判定してることが明示的になる\n\t - 処理の終了タイミング\n\t\t - `break`するよりも、挿入したタイミングで`return root`した方が処理の終了条件が明確","codeLang":"python","code":"class Solution:\n    def insert_into_bst(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:\n        if root is None:\n            return TreeNode(val)\n\n        node = root\n\n        while True:\n            if val < node.val:\n                if node.left is None:\n                    node.left = TreeNode(val)\n                    return root\n                node = node.left\n            else:\n                if node.right is None:\n                    node.right = TreeNode(val)\n                    return root\n                node = node.right","timeComplexity":"O(h)","spaceComplexity":"O(1)","note":"$undefined"},{"index":3,"title":"再帰版で実装","thinking":"- 別のアプローチを行う。\n - 再帰版で実装する","codeLang":"python","code":"class Solution:\n    def insert_into_bst(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:\n        if root is None:\n            return TreeNode(val)\n\n        if val < root.val:\n            root.left = self.insert_into_bst(root.left, val)\n        else:\n            root.right = self.insert_into_bst(root.right, val)\n\n        return root","timeComplexity":"O(h)","spaceComplexity":"O(1)","note":"- 再帰深度エラーになる可能性があるため、反復版の方が安全\n\t - 1000がデフォルト（[`sys.getrecursionlimit()`](https://docs.python.org/3.14/library/sys.html#sys.getrecursionlimit)）"}],"conceptIds":["binary-search-tree"]},"highlights":[{"light":"$10","dark":"$11"},{"light":"$12","dark":"$13"},{"light":"$14","dark":"$15"}],"concepts":[{"id":"binary-search-tree","name":"Binary Search Tree","nameJa":"二分探索木","kind":"構造","mastery":"習得","masteryPct":100,"note":"各ノードについて **左部分木の全値 < ノード値 < 右部分木の全値** の順序を保つ二分木。この不変条件により、探索・挿入・削除を木の高さ $h$ に比例する手数で行える。挿入は「$None$ に到達するまで降りて葉として付ける」だけ。最悪 $O(n)$ は偏った木（連結リスト状）のとき。実用では平衡木（AVL / 赤黒木）で高さを保証する。","studyNote":"挿入は平均 $O(\\log n)$ だが昇順データを順に挿入すると連結リスト状（$O(n)$）に退化する。平衡 BST（AVL・赤黒木）が必要な理由はここにある。","problemNumbers":[701,700,98],"complexity":[{"op":"探索","avg":"O(\\log n)","worst":"O(n)"},{"op":"挿入","avg":"O(\\log n)","worst":"O(n)"},{"op":"削除","avg":"O(\\log n)","worst":"O(n)"}]}]}]
+b:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+9:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"algo notes"}],["$","meta","2",{"name":"description","content":"LeetCode notes viewer"}]]
+7:null
