@@ -1,3 +1,15 @@
 import type { NextConfig } from "next";
-const nextConfig: NextConfig = { output: "export", images: { unoptimized: true } };
+const isGitHubPages = process.env.GITHUB_PAGES === "true";
+
+const nextConfig: NextConfig = {
+  output: "export",
+  images: { unoptimized: true },
+  ...(isGitHubPages
+    ? {
+        basePath: "/ads-note",
+        assetPrefix: "/ads-note",
+      }
+    : {}),
+};
+
 export default nextConfig;
