@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git rev-list *)",
+      "Bash(git fetch *)",
+      "Bash(git ls-tree *)",
+      "Bash(npm test *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" https://algo-notes.atu729.workers.dev/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" https://algo-notes.atu729.workers.dev/problems/1)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" https://algo-notes.atu729.workers.dev/concepts)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" https://algo-notes.atu729.workers.dev/chat)",
+      "Bash(curl -s https://algo-notes.atu729.workers.dev/)",
+      "Bash(curl -s https://algo-notes.atu729.workers.dev/problems/1)"
+    ]
+  }
+}
