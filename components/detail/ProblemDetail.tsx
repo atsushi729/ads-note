@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import type { Problem, Step } from "@/lib/types";
 import { TocRail } from "./TocRail";
 import { StepBlock } from "./StepBlock";
@@ -14,14 +15,20 @@ export function ProblemDetail({ problem, highlights, concepts }: {
     ...problem.steps.map((s: Step) => ({ id: `step-${s.index}`, label: `Step ${s.index}` })),
   ];
   return (
-    <div className="mx-auto flex max-w-[1100px]">
+    <div className="mx-auto flex w-full min-w-0 max-w-[1100px] overflow-x-hidden">
       <div className="hidden md:block"><TocRail backHref="/" backLabel="ライブラリ" items={toc} /></div>
-      <article className="max-w-[760px] flex-1 px-5 py-6 md:px-[38px] md:py-[30px]">
-        <div className="mb-3 flex items-center gap-2 font-mono text-[12px] text-fg-3">
-          <span>#{problem.number}</span>
+      <article className="min-w-0 max-w-[760px] flex-1 px-5 py-6 md:px-[38px] md:py-[30px]">
+        <Link
+          href="/"
+          className="mb-5 inline-flex items-center rounded-chip border border-line px-3 py-2 text-[13px] font-semibold text-fg-2 hover:text-fg md:hidden"
+        >
+          ← Back to library
+        </Link>
+        <div className="mb-3 flex min-w-0 flex-wrap items-center gap-2 font-mono text-[12px] text-fg-3">
+          <span className="shrink-0">#{problem.number}</span>
           <span className={`rounded-chip bg-panel-2 px-2 py-0.5 ${diffClass[problem.difficulty]}`}>{problem.difficulty}</span>
           {problem.tags.map((t) => <span key={t}>{t}</span>)}
-          {problem.source && <a href={problem.source} className="ml-auto text-accent-deep">leetcode ↗</a>}
+          {problem.source && <a href={problem.source} className="text-accent-deep md:ml-auto">leetcode ↗</a>}
         </div>
         <h1 className="mb-4 text-[30px] font-extrabold tracking-[-0.025em]" id="question">{problem.title}</h1>
         <Markdown>{problem.question}</Markdown>

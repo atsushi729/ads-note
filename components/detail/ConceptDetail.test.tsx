@@ -19,7 +19,7 @@ const concept = {
 describe("ConceptDetail", () => {
   it("renders a mobile back link to the concept library", () => {
     render(<ConceptDetail concept={concept} problems={[]} />);
-    expect(screen.getAllByRole("link", { name: "← 概念ライブラリ" }).some((link) =>
+    expect(screen.getAllByRole("link", { name: /library/i }).some((link) =>
       link.getAttribute("href") === "/concepts" && link.className.includes("md:hidden")
     )).toBe(true);
   });
