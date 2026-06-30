@@ -16,7 +16,10 @@ const config: Config = {
       },
       borderRadius: { card: "16px", inner: "13px", block: "11px", chip: "8px" },
       boxShadow: { card: "var(--shadow-card)" },
-      fontFamily: { sans: ["var(--font-hanken)", "system-ui", "sans-serif"], mono: ["var(--font-jetbrains)", "monospace"] },
+      fontFamily: {
+        sans: ["ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
+      },
     },
   },
   plugins: [],

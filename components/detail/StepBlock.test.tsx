@@ -17,4 +17,9 @@ describe("StepBlock", () => {
     fireEvent.click(screen.getByText("反復による挿入"));
     expect(screen.getByText("思考")).toBeInTheDocument();
   });
+
+  it("keeps code horizontally scrollable inside the block", () => {
+    const { container } = render(<StepBlock step={step} highlighted={hl} defaultOpen />);
+    expect(container.querySelector(".overflow-x-auto")).toBeInTheDocument();
+  });
 });

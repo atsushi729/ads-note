@@ -3,6 +3,13 @@ import type { Problem, Step } from "./types";
 import { parseProblemBody } from "./parse-steps";
 import { problemFiles } from "./content-data";
 
+function normalizeDate(value: unknown): string {
+  if (value instanceof Date) return value.toISOString().slice(0, 10);
+  if (typeof value !== "string") return "";
+  const date = value.match(/^\d{4}-\d{2}-\d{2}/)?.[0];
+  return date ?? value;
+}
+
 function loadOne(file: string, raw: string): Problem {
   const { data, content } = matter(raw);
   const parsed = parseProblemBody(content);
@@ -18,7 +25,7 @@ function loadOne(file: string, raw: string): Problem {
     difficulty: data.difficulty ?? parsed.difficulty ?? "Medium",
     tags: Array.isArray(data.tags) ? data.tags.filter((t: string) => t !== "leetcode") : [],
     source: data.source ?? "",
-    created: data.created ? String(data.created) : "",
+    created: normalizeDate(data.created),
     solved: data.solved ?? false,
     description: data.description,
     question: parsed.question,

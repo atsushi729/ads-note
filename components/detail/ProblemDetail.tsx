@@ -7,7 +7,6 @@ import { StepBlock } from "./StepBlock";
 import { Markdown } from "@/components/markdown/Markdown";
 import { ConceptChips } from "./ConceptChips";
 import type { Concept } from "@/lib/types";
-import { BottomTabBar } from "@/components/layout/BottomTabBar";
 const diffClass: Record<string, string> = { Easy: "text-easy", Medium: "text-medium", Hard: "text-hard" };
 export function ProblemDetail({ problem, highlights, concepts }: {
   problem: Problem; highlights: { light: string; dark: string }[]; concepts: Concept[];
@@ -17,15 +16,24 @@ export function ProblemDetail({ problem, highlights, concepts }: {
     ...problem.steps.map((s: Step) => ({ id: `step-${s.index}`, label: `Step ${s.index}` })),
   ];
   return (
-    <div className="mx-auto flex max-w-[1100px] pb-16 md:pb-0">
+    <div className="mx-auto flex w-full min-w-0 max-w-[1100px] overflow-x-hidden">
       <div className="hidden md:block"><TocRail backHref="/" backLabel="ライブラリ" items={toc} /></div>
-      <article className="max-w-[760px] flex-1 px-5 py-6 md:px-[38px] md:py-[30px]">
-        <div className="mb-3 flex items-center gap-2 font-mono text-[12px] text-fg-3">
-          <span>#{problem.number}</span>
+      <article className="min-w-0 max-w-[760px] flex-1 px-5 py-6 md:px-[38px] md:py-[30px]">
+        <Link
+          href="/"
+          className="mb-5 inline-flex items-center rounded-chip border border-line px-3 py-2 text-[13px] font-semibold text-fg-2 hover:text-fg md:hidden"
+        >
+          ← Back to library
+        </Link>
+        <div className="mb-3 flex min-w-0 flex-wrap items-center gap-2 font-mono text-[12px] text-fg-3">
+          <span className="shrink-0">#{problem.number}</span>
           <span className={`rounded-chip bg-panel-2 px-2 py-0.5 ${diffClass[problem.difficulty]}`}>{problem.difficulty}</span>
           {problem.tags.map((t) => <span key={t}>{t}</span>)}
-          <span className="ml-auto flex items-center gap-3">
-            <Link href={`/chat?problem=${problem.number}`} className="flex items-center gap-1 text-accent-deep">
+          <span className="flex items-center gap-3 md:ml-auto">
+            <Link
+              href={`/chat?problem=${problem.number}`}
+              className="flex items-center gap-1 text-accent-deep"
+            >
               <Sparkles size={12} /> AIに質問
             </Link>
             {problem.source && <a href={problem.source} className="text-accent-deep">leetcode ↗</a>}
@@ -41,7 +49,6 @@ export function ProblemDetail({ problem, highlights, concepts }: {
           </div>
         ))}
       </article>
-      <BottomTabBar active="library" />
     </div>
   );
 }

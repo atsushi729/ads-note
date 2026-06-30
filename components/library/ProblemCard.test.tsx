@@ -11,6 +11,8 @@ describe("ProblemCard", () => {
     expect(screen.getByText("Insert into a Binary Search Tree")).toBeInTheDocument();
     expect(screen.getByText("Medium")).toBeInTheDocument();
     expect(screen.getByText(/3 アプローチ/)).toBeInTheDocument();
+    expect(screen.getByText("Updated")).toBeInTheDocument();
+    expect(screen.getByText("2026.05.04")).toBeInTheDocument();
     expect(screen.getByText(/解答済/)).toBeInTheDocument();
   });
 });

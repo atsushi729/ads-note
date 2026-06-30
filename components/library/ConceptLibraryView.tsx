@@ -5,14 +5,13 @@ import { TopBar } from "@/components/layout/TopBar";
 import { ConceptStats } from "@/components/layout/StatStrip";
 import { FilterPanel, type Filters } from "./FilterPanel";
 import { ConceptCard } from "./ConceptCard";
-import { BottomTabBar } from "@/components/layout/BottomTabBar";
 export function ConceptLibraryView({ concepts }: { concepts: Concept[] }) {
   const [filters, setFilters] = useState<Filters>({ difficulty: "すべて", tags: [], kind: "すべて", mastery: "すべて" });
   const filtered = concepts.filter((c) =>
     (filters.kind === "すべて" || c.kind === filters.kind) &&
     (filters.mastery === "すべて" || c.mastery === filters.mastery));
   return (
-    <main className="mx-auto max-w-[1180px] pb-16 md:pb-0">
+    <main className="mx-auto max-w-[1180px]">
       <TopBar variant="concepts" onSearchClick={() => {}} />
       <ConceptStats concepts={concepts} />
       <div className="flex">
@@ -21,7 +20,6 @@ export function ConceptLibraryView({ concepts }: { concepts: Concept[] }) {
           {filtered.map((c) => <ConceptCard key={c.id} concept={c} />)}
         </div>
       </div>
-      <BottomTabBar active="library" />
     </main>
   );
 }

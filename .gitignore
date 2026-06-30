@@ -1,13 +1,17 @@
 node_modules/
 .next/
 out/
-.open-next/
-.wrangler/
-lib/content-data.ts
-.dev.vars
-cloudflare-env.d.ts
 .env
 .env.local
 .DS_Store
 .superpowers/
 design_handoff_leetcode_notes_viewer/
+
+# Cloudflare / OpenNext build artifacts & local state
+.open-next/
+.wrangler/
+.dev.vars
+cloudflare-env.d.ts
+
+# Auto-generated content bundle (scripts/gen-content.mjs)
+lib/content-data.ts
