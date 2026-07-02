@@ -5,14 +5,16 @@ import { TopBar } from "@/components/layout/TopBar";
 import { ConceptStats } from "@/components/layout/StatStrip";
 import { FilterPanel, type Filters } from "./FilterPanel";
 import { ConceptCard } from "./ConceptCard";
+import { ConceptCommandPalette } from "@/components/search/ConceptCommandPalette";
 export function ConceptLibraryView({ concepts }: { concepts: Concept[] }) {
   const [filters, setFilters] = useState<Filters>({ difficulty: "すべて", tags: [], kind: "すべて", mastery: "すべて" });
+  const [paletteOpen, setPaletteOpen] = useState(false);
   const filtered = concepts.filter((c) =>
     (filters.kind === "すべて" || c.kind === filters.kind) &&
     (filters.mastery === "すべて" || c.mastery === filters.mastery));
   return (
     <main className="mx-auto max-w-[1180px]">
-      <TopBar variant="concepts" onSearchClick={() => {}} />
+      <TopBar variant="concepts" onSearchClick={() => setPaletteOpen(true)} />
       <ConceptStats concepts={concepts} />
       <div className="flex">
         <div className="hidden md:block"><FilterPanel variant="concepts" tags={[]} filters={filters} onChange={setFilters} /></div>
@@ -20,6 +22,7 @@ export function ConceptLibraryView({ concepts }: { concepts: Concept[] }) {
           {filtered.map((c) => <ConceptCard key={c.id} concept={c} />)}
         </div>
       </div>
+      <ConceptCommandPalette concepts={concepts} open={paletteOpen} onClose={() => setPaletteOpen(false)} />
     </main>
   );
 }
