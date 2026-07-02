@@ -15,3 +15,6 @@ cloudflare-env.d.ts
 
 # Auto-generated content bundle (scripts/gen-content.mjs)
 lib/content-data.ts
+
+# TypeScript incremental build cache
+tsconfig.tsbuildinfo
