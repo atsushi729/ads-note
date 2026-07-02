@@ -24,7 +24,8 @@
       "Bash(node --input-type=module -e \"import cache from '@opennextjs/cloudflare/dist/api/overrides/incremental-cache/static-assets-incremental-cache.js'; console.log\\('name:', cache.name\\);\")",
       "Bash(node --input-type=module -e \"import cache from '@opennextjs/cloudflare/overrides/incremental-cache/static-assets-incremental-cache'; console.log\\('name:', cache.name\\);\")",
       "Bash(curl -s \"http://localhost:8787/problems/1\")",
-      "Bash(curl -s \"http://localhost:3000/problems/1\")"
+      "Bash(curl -s \"http://localhost:3000/problems/1\")",
+      "Bash(grep -v \"^$\")"
     ]
   }
 }
