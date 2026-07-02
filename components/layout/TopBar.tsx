@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Search, Plus, ChevronDown, Menu, X } from "lucide-react";
+import { Search, Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { SegmentSwitch } from "./SegmentSwitch";
 export function TopBar({ variant, onSearchClick }: { variant: "problems" | "concepts"; onSearchClick: () => void }) {
@@ -30,12 +30,6 @@ export function TopBar({ variant, onSearchClick }: { variant: "problems" | "conc
         <Search size={14} />
         <span className="hidden flex-1 md:block">{variant === "problems" ? "問題名・タグ・本文を検索" : "概念を検索"}</span>
         <kbd className="hidden rounded border border-line bg-panel-2 px-1.5 font-mono text-[11px] md:block">⌘K</kbd>
-      </button>
-      <button className="hidden items-center gap-1 rounded-chip border border-line px-3 py-2 text-[13px] text-fg-2 md:flex">
-        並び替え <ChevronDown size={14} />
-      </button>
-      <button className="hidden items-center gap-1 rounded-chip bg-fg px-3 py-2 text-[13px] font-semibold text-canvas md:flex">
-        <Plus size={14} /> {variant === "problems" ? "ノート追加" : "概念追加"}
       </button>
       <div className="shrink-0">
         <ThemeToggle />
@@ -68,14 +62,6 @@ export function TopBar({ variant, onSearchClick }: { variant: "problems" | "conc
             >
               概念
             </Link>
-          </div>
-          <div className="mt-2 grid gap-1">
-            <button className="flex w-full items-center justify-between rounded-[6px] px-3 py-2 text-left text-[13px] text-fg-2 hover:bg-panel">
-              並び替え <ChevronDown size={14} />
-            </button>
-            <button className="flex w-full items-center justify-between rounded-[6px] bg-fg px-3 py-2 text-left text-[13px] font-semibold text-canvas">
-              {variant === "problems" ? "ノート追加" : "概念追加"} <Plus size={14} />
-            </button>
           </div>
         </div>
       )}
