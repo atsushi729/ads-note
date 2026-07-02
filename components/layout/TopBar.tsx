@@ -1,72 +1,38 @@
 "use client";
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { Search, Menu, X } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { Search } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
-import { SegmentSwitch } from "./SegmentSwitch";
+
 export function TopBar({ variant, onSearchClick }: { variant: "problems" | "concepts"; onSearchClick: () => void }) {
-  const [menuOpen, setMenuOpen] = useState(false);
   const onSearchClickRef = useRef(onSearchClick);
   useEffect(() => { onSearchClickRef.current = onSearchClick; }, [onSearchClick]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") { e.preventDefault(); onSearchClickRef.current(); }
-      if (e.key === "Escape") setMenuOpen(false);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
   return (
-    <header className="relative flex h-16 items-center gap-2 border-b border-line px-3 md:gap-3 md:px-5">
-      <div className="flex min-w-0 items-center gap-2">
+    <header className="relative flex h-16 items-center border-b border-line px-4 md:px-6">
+      {/* Left: Logo */}
+      <div className="flex shrink-0 items-center gap-2">
         <div className="grid h-6 w-6 shrink-0 place-items-center rounded-[7px] bg-fg font-mono text-[12px] text-accent">{"{ }"}</div>
-        <span className="truncate text-[15px] font-bold tracking-tight">algo notes</span>
+        <span className="text-[15px] font-bold tracking-tight">algo notes</span>
       </div>
-      <div className="hidden md:block">
-        <SegmentSwitch active={variant} />
-      </div>
-      <button aria-label="Search" onClick={onSearchClick}
-        className="ml-auto grid h-9 w-9 shrink-0 place-items-center rounded-chip border border-line bg-panel text-muted md:ml-2 md:flex md:h-auto md:w-auto md:max-w-[380px] md:flex-1 md:items-center md:gap-2 md:px-3 md:py-2 md:text-left md:text-[13px]">
-        <Search size={14} />
-        <span className="hidden flex-1 md:block">{variant === "problems" ? "問題名・タグ・本文を検索" : "概念を検索"}</span>
-        <kbd className="hidden rounded border border-line bg-panel-2 px-1.5 font-mono text-[11px] md:block">⌘K</kbd>
-      </button>
-      <div className="shrink-0">
+
+      {/* Right: Search + ThemeToggle */}
+      <div className="ml-auto flex items-center gap-2">
+        <button aria-label="Search" onClick={onSearchClick}
+          className="grid h-9 w-9 shrink-0 place-items-center rounded-chip border border-line bg-panel text-muted md:flex md:h-auto md:w-auto md:max-w-[260px] md:items-center md:gap-2 md:px-3 md:py-2 md:text-left md:text-[13px]">
+          <Search size={14} />
+          <span className="hidden flex-1 md:block">{variant === "problems" ? "問題・タグを検索" : "概念を検索"}</span>
+          <kbd className="hidden rounded border border-line bg-panel-2 px-1.5 font-mono text-[11px] md:block">⌘K</kbd>
+        </button>
         <ThemeToggle />
       </div>
-      <button
-        aria-label={menuOpen ? "Close menu" : "Open menu"}
-        aria-expanded={menuOpen}
-        onClick={() => setMenuOpen((open) => !open)}
-        className="grid h-9 w-9 shrink-0 place-items-center rounded-chip border border-line text-fg-3 hover:text-fg md:hidden"
-      >
-        {menuOpen ? <X size={16} /> : <Menu size={16} />}
-      </button>
-      {menuOpen && (
-        <div
-          aria-label="Mobile menu"
-          className="absolute right-3 top-[calc(100%+8px)] z-50 w-[min(calc(100vw-1.5rem),18rem)] rounded-[8px] border border-line bg-canvas p-2 shadow-lg md:hidden"
-        >
-          <div className="grid grid-cols-2 gap-1 rounded-chip bg-panel-2 p-1">
-            <Link
-              href="/"
-              onClick={() => setMenuOpen(false)}
-              className={`rounded-chip px-3 py-2 text-center text-[13px] font-semibold ${variant === "problems" ? "bg-canvas text-fg shadow-sm" : "text-fg-3"}`}
-            >
-              問題
-            </Link>
-            <Link
-              href="/concepts"
-              onClick={() => setMenuOpen(false)}
-              className={`rounded-chip px-3 py-2 text-center text-[13px] font-semibold ${variant === "concepts" ? "bg-canvas text-fg shadow-sm" : "text-fg-3"}`}
-            >
-              概念
-            </Link>
-          </div>
-        </div>
-      )}
     </header>
   );
 }
