@@ -18,8 +18,8 @@ describe("TabBar", () => {
   it("applies active class to the active tab only (problems)", () => {
     const { container } = render(<TabBar active="problems" />);
     const links = container.querySelectorAll("a");
-    const problemsLink = [...links].find((a) => a.textContent === "問題")!;
-    const conceptsLink = [...links].find((a) => a.textContent === "概念")!;
+    const problemsLink = [...links].find((a) => a.textContent?.trim() === "問題")!;
+    const conceptsLink = [...links].find((a) => a.textContent?.trim() === "概念")!;
     expect(problemsLink.className).toContain("border-accent");
     expect(conceptsLink.className).not.toContain("border-accent");
   });
@@ -27,8 +27,8 @@ describe("TabBar", () => {
   it("applies active class to the active tab only (concepts)", () => {
     const { container } = render(<TabBar active="concepts" />);
     const links = container.querySelectorAll("a");
-    const problemsLink = [...links].find((a) => a.textContent === "問題")!;
-    const conceptsLink = [...links].find((a) => a.textContent === "概念")!;
+    const problemsLink = [...links].find((a) => a.textContent?.trim() === "問題")!;
+    const conceptsLink = [...links].find((a) => a.textContent?.trim() === "概念")!;
     expect(conceptsLink.className).toContain("border-accent");
     expect(problemsLink.className).not.toContain("border-accent");
   });
