@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import type { Problem } from "@/lib/types";
 import { TopBar } from "@/components/layout/TopBar";
 import { FilterPanel, type Filters } from "./FilterPanel";
@@ -8,13 +8,6 @@ import { CommandPalette } from "@/components/search/CommandPalette";
 export function LibraryView({ problems }: { problems: Problem[] }) {
   const [filters, setFilters] = useState<Filters>({ difficulty: "すべて", tags: [], kind: "すべて", mastery: "すべて" });
   const [paletteOpen, setPaletteOpen] = useState(false);
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") { e.preventDefault(); setPaletteOpen(true); }
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
   const tags = useMemo(() => [...new Set(problems.flatMap((p) => p.tags))], [problems]);
   const filtered = problems.filter((p) =>
     (filters.difficulty === "すべて" || p.difficulty === filters.difficulty) &&

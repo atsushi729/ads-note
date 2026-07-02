@@ -1,20 +1,22 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Search, Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { SegmentSwitch } from "./SegmentSwitch";
 export function TopBar({ variant, onSearchClick }: { variant: "problems" | "concepts"; onSearchClick: () => void }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const onSearchClickRef = useRef(onSearchClick);
+  useEffect(() => { onSearchClickRef.current = onSearchClick; }, [onSearchClick]);
 
   useEffect(() => {
-    if (!menuOpen) return;
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setMenuOpen(false);
+    const onKey = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") { e.preventDefault(); onSearchClickRef.current(); }
+      if (e.key === "Escape") setMenuOpen(false);
     };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [menuOpen]);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   return (
     <header className="relative flex h-16 items-center gap-2 border-b border-line px-3 md:gap-3 md:px-5">
