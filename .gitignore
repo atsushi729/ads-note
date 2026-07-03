@@ -5,6 +5,7 @@ out/
 .env.local
 .DS_Store
 .superpowers/
+.claude/settings.json
 design_handoff_leetcode_notes_viewer/
 
 # Cloudflare / OpenNext build artifacts & local state
