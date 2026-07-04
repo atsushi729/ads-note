@@ -70,7 +70,8 @@ npm run lint     # Lint
 
 - `@opennextjs/cloudflare` で Worker としてデプロイ（**純 SSG export ではない**。`next.config.ts` から `output: "export"` は削除済み）。問題/概念ページは引き続き SSG、`/chat`・`/api/chat` のみ動的。
 - 設定: `wrangler.jsonc`（`ai` binding=`AI`、`vars.CHAT_PROVIDER`）、`open-next.config.ts`。
-- コマンド: `npm run preview`（ローカルで Worker をプレビュー）、`npm run deploy`（ビルド＋`wrangler deploy`）、`npm run cf-typegen`（binding 型生成）。
+- **自動デプロイ**: Cloudflare Workers Builds を `algo-notes` Worker に Git 連携済み。`main` に push すると自動でビルド・デプロイされる（Install: `npm install --legacy-peer-deps`、Build: `npm run gen:content && npx opennextjs-cloudflare build`、Deploy: `npx wrangler deploy`）。手動で `npm run deploy` する必要は基本的にない（ローカル確認や緊急デプロイ時のみ使用）。
+- コマンド: `npm run preview`（ローカルで Worker をプレビュー）、`npm run deploy`（手動デプロイ。ビルド＋`wrangler deploy`）、`npm run cf-typegen`（binding 型生成）。
 - **実行時 fs 不可**: Worker ランタイムに `fs` が無い。`content/*.md` は `scripts/gen-content.mjs` が `lib/content-data.ts`（gitignore・生成物）へインライン化し、`lib/problems.ts`/`lib/concepts.ts` はそこからパースする。`gen:content` は predev/prebuild/pretest と preview/deploy に組み込み済み。
 - **workers-ai-provider のパッチ**: `patches/workers-ai-provider+3.2.1.patch`（SSEトークン二重 emit の修正）を `postinstall` の patch-package で適用。パッチ変更時は webpack キャッシュのため `rm -rf .next` してから再ビルド。
 - Workers AI モデルは廃止されることがある（現行は `npx wrangler ai models` で確認）。既定モデルは `lib/ai/provider.ts` の `DEFAULT_MODELS`。
