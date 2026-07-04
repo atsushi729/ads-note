@@ -3,8 +3,6 @@ id: bfs
 name: BFS
 nameJa: 幅優先探索
 kind: アルゴ
-mastery: 習得
-masteryPct: 100
 problemNumbers: [200]
 complexity:
   - { op: 探索（グラフ）, avg: O(V + E), worst: O(V + E) }

@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { FilterPanel, type Filters } from "./FilterPanel";
-const base: Filters = { difficulty: "すべて", tags: [], kind: "すべて", mastery: "すべて" };
+const base: Filters = { difficulty: "すべて", tags: [], kind: "すべて" };
 describe("FilterPanel", () => {
   it("selects a difficulty", () => {
     const onChange = vi.fn();

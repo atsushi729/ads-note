@@ -1,10 +1,9 @@
 "use client";
-import type { Difficulty, Kind, Mastery } from "@/lib/types";
+import type { Difficulty, Kind } from "@/lib/types";
 export interface Filters {
   difficulty: "すべて" | Difficulty;
   tags: string[];
   kind: "すべて" | Kind;
-  mastery: "すべて" | Mastery;
 }
 const row = "block w-full rounded-chip px-3 py-1.5 text-left text-[13px] transition-colors";
 function Item({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
@@ -36,14 +35,11 @@ export function FilterPanel({ variant, tags, filters, onChange }: {
     );
   }
   const kinds: ("すべて" | Kind)[] = ["すべて", "構造", "アルゴ"];
-  const masteries: ("すべて" | Mastery)[] = ["すべて", "習得", "復習中", "未学習"];
   const kindLabel = (k: string) => (k === "構造" ? "データ構造" : k === "アルゴ" ? "アルゴリズム" : "すべて");
   return (
     <aside className="w-[196px] shrink-0 border-r border-line px-3 py-5">
       <div className={heading}>種別</div>
       {kinds.map((k) => <Item key={k} active={filters.kind === k} onClick={() => onChange({ ...filters, kind: k })}>{kindLabel(k)}</Item>)}
-      <div className={heading}>習得度</div>
-      {masteries.map((m) => <Item key={m} active={filters.mastery === m} onClick={() => onChange({ ...filters, mastery: m })}>{m}</Item>)}
     </aside>
   );
 }

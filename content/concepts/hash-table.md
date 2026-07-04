@@ -3,8 +3,6 @@ id: hash-table
 name: Hash Table
 nameJa: ハッシュ表
 kind: 構造
-mastery: 復習中
-masteryPct: 65
 problemNumbers: [1, 146]
 complexity:
   - { op: 探索, avg: O(1), worst: O(n) }

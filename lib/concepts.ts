@@ -9,8 +9,6 @@ function loadOne(file: string, raw: string): Concept {
     name: data.name ?? "",
     nameJa: data.nameJa ?? "",
     kind: data.kind ?? "構造",
-    mastery: data.mastery ?? "未学習",
-    masteryPct: typeof data.masteryPct === "number" ? data.masteryPct : 0,
     note: content.trim(),
     studyNote: typeof data.studyNote === "string" ? data.studyNote : "",
     problemNumbers: Array.isArray(data.problemNumbers) ? data.problemNumbers : [],

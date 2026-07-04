@@ -3,8 +3,6 @@ id: binary-search-tree
 name: Binary Search Tree
 nameJa: 二分探索木
 kind: 構造
-mastery: 習得
-masteryPct: 100
 problemNumbers: [701, 700, 98]
 complexity:
   - { op: 探索, avg: O(\log n), worst: O(n) }

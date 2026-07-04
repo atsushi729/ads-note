@@ -8,8 +8,6 @@ const concept = {
   name: "Binary Search Tree",
   nameJa: "二分探索木",
   kind: "構造",
-  mastery: "習得",
-  masteryPct: 100,
   note: "木構造の探索を効率化する。",
   studyNote: "",
   problemNumbers: [],

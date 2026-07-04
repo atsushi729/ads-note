@@ -3,8 +3,6 @@ id: two-pointers
 name: Two Pointers
 nameJa: 二ポインタ
 kind: アルゴ
-mastery: 復習中
-masteryPct: 60
 problemNumbers: []
 complexity:
   - { op: 走査（ソート済み配列）, avg: O(n), worst: O(n) }

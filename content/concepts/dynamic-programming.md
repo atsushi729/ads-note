@@ -3,8 +3,6 @@ id: dynamic-programming
 name: Dynamic Programming
 nameJa: 動的計画法
 kind: アルゴ
-mastery: 復習中
-masteryPct: 55
 problemNumbers: [322]
 complexity:
   - { op: 一般（状態数×遷移数）, avg: O(n \cdot k), worst: O(n \cdot k) }

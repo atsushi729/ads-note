@@ -5,7 +5,6 @@ import { TocRail } from "./TocRail";
 import { Markdown } from "@/components/markdown/Markdown";
 import { ComplexityTable } from "./ComplexityTable";
 import { RelatedProblems } from "./RelatedProblems";
-import { masteryColorVar } from "@/lib/difficulty";
 export function ConceptDetail({
   concept,
   problems,
@@ -13,7 +12,6 @@ export function ConceptDetail({
   concept: Concept;
   problems: Problem[];
 }) {
-  const color = `var(${masteryColorVar(concept.mastery)})`;
   return (
     <div className="mx-auto flex max-w-[1100px]">
       <div className="hidden md:block">
@@ -39,7 +37,6 @@ export function ConceptDetail({
           <span className="rounded-chip bg-panel-2 px-2 py-0.5 text-fg-3">
             {concept.kind === "構造" ? "データ構造" : "アルゴ"}
           </span>
-          <span style={{ color }}>● {concept.mastery}</span>
           <span className="ml-auto flex items-center gap-3">
             <Link
               href={`/chat?concept=${concept.id}`}

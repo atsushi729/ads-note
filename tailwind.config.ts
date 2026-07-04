@@ -11,7 +11,6 @@ const config: Config = {
         muted: "var(--muted)", "muted-2": "var(--muted-2)",
         accent: "var(--accent)", "accent-deep": "var(--accent-deep)",
         easy: "var(--easy)", medium: "var(--medium)", hard: "var(--hard)",
-        "mastery-none": "var(--mastery-none)",
         "code-bg": "var(--code-bg)", "code-border": "var(--code-border)",
       },
       borderRadius: { card: "16px", inner: "13px", block: "11px", chip: "8px" },

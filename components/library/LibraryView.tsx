@@ -8,7 +8,7 @@ import { ProblemCard } from "./ProblemCard";
 import { CommandPalette } from "@/components/search/CommandPalette";
 
 export function LibraryView({ problems }: { problems: Problem[] }) {
-  const [filters, setFilters] = useState<Filters>({ difficulty: "すべて", tags: [], kind: "すべて", mastery: "すべて" });
+  const [filters, setFilters] = useState<Filters>({ difficulty: "すべて", tags: [], kind: "すべて" });
   const [paletteOpen, setPaletteOpen] = useState(false);
   const tags = useMemo(() => [...new Set(problems.flatMap((p) => p.tags))], [problems]);
   const filtered = problems.filter((p) =>

@@ -1,5 +1,4 @@
 export type Difficulty = "Easy" | "Medium" | "Hard";
-export type Mastery = "習得" | "復習中" | "未学習";
 export type Kind = "構造" | "アルゴ";
 
 export interface Step {
@@ -31,8 +30,6 @@ export interface Concept {
   name: string;
   nameJa: string;
   kind: Kind;
-  mastery: Mastery;
-  masteryPct: number;
   note: string;
   studyNote: string;
   problemNumbers: number[];

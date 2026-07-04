@@ -3,8 +3,6 @@ id: stack
 name: Stack
 nameJa: スタック
 kind: 構造
-mastery: 習得
-masteryPct: 100
 problemNumbers: [20]
 complexity:
   - { op: プッシュ, avg: O(1), worst: O(1) }

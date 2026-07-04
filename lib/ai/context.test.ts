@@ -36,8 +36,6 @@ const concept: Concept = {
   name: "Binary Search Tree",
   nameJa: "二分探索木",
   kind: "構造",
-  mastery: "習得",
-  masteryPct: 80,
   note: "",
   studyNote: "左 < 親 < 右 の不変条件を保つ。",
   problemNumbers: [701, 700, 98],
