@@ -3,7 +3,7 @@ id: two-pointers
 name: Two Pointers
 nameJa: 二ポインタ
 kind: アルゴ
-problemNumbers: []
+problemNumbers: [167]
 complexity:
   - { op: 走査（ソート済み配列）, avg: O(n), worst: O(n) }
 studyNote: "ソート済みが前提の手法なので、問題文に sorted の記載がなければ $O(n \\log n)$ のソートコストも含めて計算量を評価する必要がある。"
