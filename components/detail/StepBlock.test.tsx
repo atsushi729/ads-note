@@ -7,9 +7,10 @@ const step: Step = { index: 1, title: "反復による挿入", thinking: "- BST 
 const hl = { light: "<pre>while node</pre>", dark: "<pre>while node</pre>" };
 describe("StepBlock", () => {
   it("collapsed by default shows title and complexity summary", () => {
-    render(<StepBlock step={step} highlighted={hl} defaultOpen={false} />);
+    const { container } = render(<StepBlock step={step} highlighted={hl} defaultOpen={false} />);
     expect(screen.getByText("反復による挿入")).toBeInTheDocument();
-    expect(screen.getByText(/O\(h\)/)).toBeInTheDocument();
+    expect(container.querySelectorAll(".katex").length).toBe(2);
+    expect(container.textContent).toContain("O(h)");
     expect(screen.queryByText(/思考/)).toBeNull();
   });
   it("expands on header click", () => {

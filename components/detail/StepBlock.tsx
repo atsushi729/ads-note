@@ -1,10 +1,16 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
+import katex from "katex";
 import type { Step } from "@/lib/types";
 import { Markdown } from "@/components/markdown/Markdown";
 import { ComplexityChip } from "./ComplexityChip";
 import { useTheme } from "@/components/theme/ThemeProvider";
+function Tex({ value }: { value: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  useEffect(() => { if (ref.current && value) katex.render(value, ref.current, { throwOnError: false }); }, [value]);
+  return <span ref={ref} />;
+}
 export function StepBlock({ step, highlighted, defaultOpen }: {
   step: Step; highlighted: { light: string; dark: string }; defaultOpen: boolean;
 }) {
@@ -16,7 +22,11 @@ export function StepBlock({ step, highlighted, defaultOpen }: {
         className="flex w-full min-w-0 items-center gap-3 px-4 py-3 text-left">
         <span className={`grid h-5 w-5 shrink-0 place-items-center rounded font-mono text-[11px] ${open ? "bg-fg text-canvas" : "bg-panel-2 text-fg-3"}`}>{step.index}</span>
         <span className="min-w-0 flex-1 truncate text-[14px] font-semibold text-fg">{step.title}</span>
-        {!open && <span className="shrink-0 font-mono text-[12px] text-fg-3">{step.timeComplexity} · {step.spaceComplexity}</span>}
+        {!open && (
+          <span className="flex shrink-0 items-center gap-1 font-mono text-[12px] text-fg-3">
+            <Tex value={step.timeComplexity} /> · <Tex value={step.spaceComplexity} />
+          </span>
+        )}
         {open ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
       </button>
       {open && (
