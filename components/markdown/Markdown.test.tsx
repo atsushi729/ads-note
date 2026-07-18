@@ -10,4 +10,12 @@ describe("Markdown", () => {
     render(<Markdown>{"- one\n- two"}</Markdown>);
     expect(await screen.findByText("one")).toBeInTheDocument();
   });
+  it("renders GFM tables with design-system classes", async () => {
+    render(<Markdown>{"| a | b |\n| --- | --- |\n| 1 | 2 |"}</Markdown>);
+    const table = await screen.findByRole("table");
+    expect(table).toHaveClass("border-collapse");
+    expect(table.parentElement).toHaveClass("rounded-block", "border", "border-line");
+    expect(screen.getByText("a").closest("th")).toHaveClass("text-fg-3");
+    expect(screen.getByText("1").closest("td")).toHaveClass("border-t", "border-line");
+  });
 });
