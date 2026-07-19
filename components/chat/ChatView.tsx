@@ -116,7 +116,7 @@ export function ChatView({
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => {
-              if (e.key === "Enter" && !e.shiftKey) submit(e);
+              if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) submit(e);
             }}
             rows={1}
             placeholder={busy ? "応答中…" : "メッセージを入力（Enter で送信 / Shift+Enter で改行）"}
