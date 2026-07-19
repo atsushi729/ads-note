@@ -120,7 +120,7 @@ class Solution:
         return max_seq
 ```
 
-#### メモ
+#### 注意点
 
 - 存在を確認する。
 - 存在したら、連続しているかwhileで確認する
