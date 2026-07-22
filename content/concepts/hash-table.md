@@ -3,7 +3,7 @@ id: hash-table
 name: Hash Table
 nameJa: ハッシュ表
 kind: 構造
-problemNumbers: [1, 146, 167, 202]
+problemNumbers: [1, 138, 146, 167, 202]
 complexity:
   - { op: 探索, avg: O(1), worst: O(n) }
   - { op: 挿入, avg: O(1), worst: O(n) }
